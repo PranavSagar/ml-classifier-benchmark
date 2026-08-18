@@ -64,6 +64,13 @@ with st.sidebar:
         st.success(f"Using {upload.name}")
     else:
         st.info("Using the bundled `test_data.csv` (8,238 held-out rows).")
+    st.download_button(
+        "Download test_data.csv",
+        (ROOT / "test_data.csv").read_bytes(),
+        file_name="test_data.csv",
+        mime="text/csv",
+        help="Grab it, then upload it above to exercise the upload path.",
+    )
 
     st.header("Model")
     choice = st.selectbox("Classifier", list(MODELS))

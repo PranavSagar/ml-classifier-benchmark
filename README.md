@@ -4,7 +4,7 @@ Five classification models trained on the UCI Bank Marketing dataset, compared o
 metrics, and served through an interactive Streamlit app.
 
 - **GitHub repository:** https://github.com/PranavSagar/ml-classifier-benchmark
-- **Live app:** _(Streamlit Community Cloud link — see Deployment below)_
+- **Live app:** https://ml-classifier-benchmark-ps.streamlit.app
 
 ---
 
@@ -135,10 +135,11 @@ Three tabs over whichever CSV is loaded:
 - **Predictions** — per-customer subscription probability and predicted label, with the
   full scored file downloadable as CSV.
 
-Sidebar controls: **CSV upload**, **model dropdown**, and the **decision threshold
-slider**. With the uploader empty it falls back to the bundled `test_data.csv`. The
-uploader sniffs the delimiter, so both the semicolon-separated UCI format and a
-comma-separated re-export work.
+Sidebar controls: **CSV upload**, **model dropdown**, the **decision threshold slider**,
+and a download button for the bundled `test_data.csv` — grab it and upload it straight
+back to exercise the upload path without leaving the app. With the uploader empty the app
+falls back to that same file. The uploader sniffs the delimiter, so both the
+semicolon-separated UCI format and a comma-separated re-export work.
 
 ## 6. Project structure
 
