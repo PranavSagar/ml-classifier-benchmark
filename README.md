@@ -167,9 +167,13 @@ python model/train.py     # optional — fitted pipelines are already committed
 streamlit run app.py
 ```
 
-`scikit-learn` is pinned to `1.6.1` in `requirements.txt`, the version the committed
-pipelines were fitted with. Unpinning it makes joblib emit version warnings and risks the
-app failing to load the models after a scikit-learn release.
+`scikit-learn` and `numpy` are both pinned in `requirements.txt` to the versions the
+committed pipelines were fitted with (1.6.1 and 2.4.6, on Python 3.11). Unpinning
+scikit-learn makes joblib emit version warnings and risks the app failing to load the
+models after a release. Pinning numpy is subtler but matters just as much: fitting under
+numpy 2.0 instead of 2.4 changed kNN's AUC in the fourth decimal, because a different
+BLAS resolves distance ties differently. Without the pin, the deployed app would quietly
+disagree with the comparison table above.
 
 ## 8. Deployment
 
